@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.5/css/uikit.min.css" />
+    <link rel="stylesheet" href="/Assets/css/login.css">
+    <title>Login</title>
+    <style>
+        /* Estilos adicionales */
+        .footer-image {
+            width: 400px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Ajuste para la segunda imagen */
+        .footer-image:nth-child(2) {
+            left: auto;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <container class="uk-container uk-flex uk-flex-center">
+
+        <section class="section-log">
+            <h1>Iniciar Sesión</h1>
+            {{#error}}
+            <p>User or password invalid. Try Again.</p>
+            {{/error}}
+            <form action="/login" method="POST">
+                <div class="row">
+                    <div class="six columns">
+                        <label for="email">Email</label>
+                        <input class="u-full-width input-log" type="email" name="email" placeholder="Correo Electrónico">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <label for="password">Password</label>
+                        <input class="u-full-width" type="password" name="password" placeholder="Contraseña">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="three columns">
+                        <button class="button-primary" type="submit">Iniciar Sesión</button>
+                    </div>
+                    <div class="three columns">
+                        <a class="button" href="/register">Registrarse</a>
+                    </div>
+                </div>
+            </form>
+            <div class="or-separator">O</div>
+            <p class="planify-reference">Bienvenido a Planify</p>
+        </section>
+    </container>
+
+    <section>
+        <!-- Agregar la imagen al pie de página -->
+        <img src="/Assets/images/section1/login-img.jpg" class="footer-image" alt="Pie de página">
+        <img src="/Assets/images/section1/login-img2.jpg" class="footer-image" alt="Pie de página">
+    </section>
+
+</body>
+
+</html>

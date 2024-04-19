@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/Assets/css/normalize.css">
+<link rel="stylesheet" href="/Assets/css/skeleton.css">
+</head>
+<body>
+ <div class="container">
+  <div class="row">
+   <div class="eleven column" style="margin-top: 10%">
+     {{#boards}}
+ 	 {{#show}}<form>{{/show}}
+     <div class="row">
+      <div class="six columns">
+        <h1>{{name_bds}}</h1> 
+      </div>
+      <table><thead>
+        <tr><th>Name</th>
+        </thead><tbody>
+        {{#tasks}}
+        {{#login}}
+        <tr>
+          <td>{{name}}</td>  <td>{{author}}</td>
+          <td>{{state}}</td>
+          <td>{{date_start}}</td>
+          <td>{{date_end}}</td>
+          <td>{{note}}</td>
+   
+        <td>
+        <a class="button" href="tasks/{{id}}">Tareas</a>
+        <a class="button" href="tasks/{{id}}/edit">Editar</a>
+        <a class="button" href="tasks/{{id}}/delete">Eliminar</a>
+      {{/login}}
+        </td>
+        </tr>
+        {{/tasks}}</tbody>
+       </table>
+     </div>
+      <a class="button button-primary" href="/boards">Back</a>
+     {{/boards}}
+    </form>
+   </div>
+  </div>
+ </div>
+</body>

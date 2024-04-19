@@ -1,0 +1,51 @@
+<head>
+   <meta charset="UTF-8">
+   <!-- UIkit CSS -->
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/css/uikit.min.css" />
+   <link rel="stylesheet" href="/Assets/css/uikit-rtl.css">
+   <link rel="stylesheet" href="/Assets/css/uikit-rtl.min.css">
+   <link rel="stylesheet" href="/Assets/css/uikit.css">
+   <link rel="stylesheet" href="/Assets/css/uikit.min.css">
+   <!-- custom -->
+
+   
+   <!-- jQuery is required -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+     integrity="sha512-Mk5rwKtQIzSRpv0PyQr09GXqU++yIqXFO/6Lrs60r+4iEFeU0d0r7Yc+3X0lUmZjSaqbwlDgev3H3/srl0JF/Q=="
+     crossorigin="anonymous"
+     referrerpolicy="no-referrer"
+   />
+
+   <!-- UIkit JS -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/js/uikit.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.28/js/uikit-icons.min.js"></script>
+
+</head>
+<nav class="uk-navbar-container" uk-navbar>
+      <div class="uk-navbar-left">
+          <a class="uk-navbar-item uk-logo" href="/">
+              <img src="/Assets/images/logo.png" alt="Logo" style="    height: 80px; width: 80px;">
+          </a>
+          <ul class="uk-navbar-nav">
+              <li><a href="/">Inicio</a></li>
+              <li><a href="/boards">Tablas</a></li>
+              <li><a href="/user">Usuarios</a></li>
+          </ul>
+          {{#login}}
+          <a class="button" style="float: right" 
+             href="/logout" login >Logout</a>
+          {{/login}}    {{^login}}
+          <button style="height: 40px;
+          margin-top: 20px;"><a class="text-withe uk-text-bold" style="text-decoration: none;" href="/login">Login</a></button>
+            {{~login}}
+      </div>
+    
+  </div>
+
+</div>      
+  </nav>
+  

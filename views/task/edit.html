@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/Assets/css/normalize.css">
+<link rel="stylesheet" href="/Assets/css/skeleton.css">
+</head>
+<body>
+ <div class="container">
+  <div class="row">
+   <div class="eleven column" style="margin-top: 10%">
+    <h2>{{title}}</h2>
+     {{#task}}
+      <form action="/tasks/{{id}}" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+     <div class="row">
+      <div class="six columns">
+       <label for="nameInput">author</label>
+       <input class="u-full-width" type="text" 
+	     {{#show}} readonly {{/show}}
+          name="author" value="{{author}}">
+      </div>
+      <div class="six columns">
+        <label for="nameInput">state</label>
+        <input class="u-full-width" type="text" 
+          {{#show}} readonly {{/show}}
+           name="state" value="{{state}}">
+       </div>
+       <div class="six columns">
+        <label for="nameInput">date_start</label>
+        <input class="u-full-width" type="date" 
+          {{#show}} readonly {{/show}}
+           name="date_start" value="{{date_start}}">
+       </div>
+       <div class="six columns">
+        <label for="nameInput">date_end</label>
+        <input class="u-full-width" type="date" 
+          {{#show}} readonly {{/show}}
+           name="date_end" value="{{date_end}}">
+       </div>
+       <div class="six columns">
+        <label for="nameInput">note</label>
+        <input class="u-full-width" type="text" 
+          {{#show}} readonly {{/show}}
+           name="note" value="{{note}}">
+       </div>
+       <div class="six columns">
+        <label for="nameInput">name</label>
+        <input class="u-full-width" type="text" 
+          {{#show}} readonly {{/show}}
+           name="name" value="{{name}}">
+       </div>
+    
+     </div>
+     <h1>{{board_id}}</h1>
+     <input type="hidden" name="board_id" value="{{board_id}}">
+     <a class="button button-primary" href="/tasks?board_id={{board_id}}">Back</a>
+     <input style="float: right" class="button-primary" type="submit" value="Update">
+     {{/task}}
+    </form>
+   </div>
+  </div>
+ </div>
+</body>

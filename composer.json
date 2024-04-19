@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "classmap": [
+            "controllers/",
+            "models/",
+            "views/"
+        ]
+    },
+    "require": {
+        "mustache/mustache": "^2.14"
+    }
+}

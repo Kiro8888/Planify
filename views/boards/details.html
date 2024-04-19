@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/Assets/css/normalize.css">
+<link rel="stylesheet" href="/Assets/css/skeleton.css">
+</head>
+<body>
+ <div class="container">
+  <div class="row">
+   <div class="eleven column" style="margin-top: 10%">
+    <h2>{{title}}</h2>
+     {{#boards}}
+ 	 {{#show}}<form>{{/show}}
+ 	 {{#create}}<form action="/boards" method="POST">{{/create}}
+     {{#edit}}<form action="/boards/{{id}}" method="POST">
+ 		<input type="hidden" name="_method" value="PUT">{{/edit}}
+     <div class="row">
+      <div class="six columns">
+       <label for="nameInput">Name</label>
+       <input class="u-full-width" type="text" 
+	     {{#show}} readonly {{/show}}
+          name="name_bds" value="{{name_bds}}">
+      </div>
+      <div class="six columns">
+        <label for="nameInput">Share</label>
+        <select class="u-full-width" name="share">
+            <option value="">Select user</option>
+            {{#users}}
+            <option value="{{id}}">{{name}}</option>
+            {{/users}}
+        </select>
+    </div>
+    
+    
+     </div>
+      <a class="button button-primary" href="/boards">Back</a>
+	 {{#edit}}<input style="float: right" class="button-primary" type="submit" value="Update">{{/edit}}
+	 {{#create}}<input style="float: right" class="button-primary" type="submit" value="Create">{{/create}}
+     {{/boards}}
+    </form>
+   </div>
+  </div>
+ </div>
+</body>

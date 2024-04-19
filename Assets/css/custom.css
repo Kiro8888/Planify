@@ -1,0 +1,52 @@
+.uk-card {
+    max-width: 330px;
+    margin: 20px;
+}
+
+h5 {
+    color: red;
+}
+
+a {
+    color: red;
+}
+
+.section1-pa {
+    font-family: Arnhem, Times, Courier, serif;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-bottom: 13px;
+    margin-top: 13px;
+}
+
+.custom-search-input {
+    background-size: 30px;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+    font-size: 16px;
+    color: #666;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 40px;
+    width: 300px;
+    outline: none;
+}
+
+.custom-search-input::placeholder {
+    color: #999;
+}
+
+.red-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.red-button:hover {
+    background-color: #cc0000;
+}

@@ -1,0 +1,50 @@
+    <!-- custom -->
+    <link rel="stylesheet" href="/Assets/css/tasks.css">
+<div class="container">
+  {{> navbar}}
+  <div class="row">
+    <div>
+      <form action="/tasks" method="GET">
+      </form>
+      <table class="custom-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>State</th>
+            <th>Date Start</th>
+            <th>Date End</th>
+            <th>Note</th>
+            <th>Board ID</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#tasks}}
+          {{#login}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{author}}</td>
+            <td>{{state}}</td>
+            <td>{{date_start}}</td>
+            <td>{{date_end}}</td>
+            <td>{{note}}</td>
+            <td>{{board_id}}</td>
+            <td>
+              <a class="button" href="tasks/{{id}}">Ver</a>
+              <a class="button" href="tasks/{{id}}/edit">Editar</a>
+              <a class="button" href="tasks/{{id}}/delete">Eliminar</a>
+            </td>
+          </tr>
+          {{/login}}
+          {{/tasks}}
+        </tbody>
+      </table>
+      {{#login}}
+        {{#board}}
+          <a class="button" href="/tasks/create?board_id={{id}}">New</a>
+        {{/board}}
+      {{/login}}
+    </div>
+  </div>
+</div>
