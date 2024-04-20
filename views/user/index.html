@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="/Assets/css/tasks.css">
 </head>
-
 <body>
 
  <div class="container">
   {{> navbar}}
   <div class="row">
    <div>
-     <h2>{{title}}</h2>
+     <h2 style=" margin-left: 100px;">{{title}}</h2>
+          
+     {{#login}}
+      <a     class="button-new" style=" margin-left: 100px;  text-decoration: none;" href="/user/create">New</a>
+     {{/login}}
+  
 
-     <form action="/user" method="GET">
-      <label for="search">Search by Name:</label>
+     <form action="/user" method="GET" style=" margin-top: 20px">
+      <label style=" margin-left: 100px;" for="search">Search by Name:</label>
       <input type="text" id="search" name="search">
       <button type="submit">Search</button>
-  </form>
-     <table><thead>
-      <tr><th>Name</th><th>email</th>
-      </thead><tbody>
-      {{#users}}
-      {{#login}}
-      <tr><td>{{name}}</td>
-        <td>{{email}}</td>
-      <td>
-        <a class="button" href="user/{{id}}">Show</a>
-      <a class="button" href="user/{{id}}/edit">Editar</a>
-      <a class="button" href="user/{{id}}/delete">Eliminar</a>
-	  {{/login}}
-      </td>
-      </tr>
-      {{/users}}</tbody>
+     </form>
+
+     <table class="custom-table"style="width: 800px;
+     margin-left: 100px;">
+      <thead>
+       <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+       </tr>
+      </thead>
+      <tbody>
+       {{#users}}
+        {{#login}}
+         <tr>
+          <td>{{name}}</td>
+          <td>{{email}}</td>
+          <td>
+           <a class="button" href="user/{{id}}">Show</a>
+           <a class="button" href="user/{{id}}/edit">Editar</a>
+           <a class="button" href="user/{{id}}/delete">Eliminar</a>
+          </td>
+         </tr>
+        {{/login}}
+       {{/users}}
+      </tbody>
      </table>
-	 {{#login}}
-     <a class="button" href="/user/create">New</a>
-	 {{/login}}
     </div>
    </div>
  </div>
 </body>
+</html>
