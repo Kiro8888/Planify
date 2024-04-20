@@ -1,45 +1,64 @@
 <!DOCTYPE html>
-<!-- file: views/professor/index.html -->
 <html>
 <head>
   <link rel="stylesheet" href="/Assets/css/tasks.css">
-
 </head>
 <img src="/Assets/images/fondos/bords2.png" class="bottom-right-image">
 <div class="bottom-border"></div>
 
-<body >
- <div class="container">
-  {{> navbar}}
-  <div class="row">
-   <div>
-     <h2>{{title}}</h2>
+<body>
+<container class="container">
 
-     <form action="/boards" method="GET">
-      <label for="search">Search by Name:</label>
-      <input type="text" id="search" name="search">
-      <button type="submit">Search</button>
-  </form>
-     <table><thead>
-      <tr><th>Name</th>
-      </thead><tbody>
-      {{#boards}}
-      {{#login}}
-      <tr><td>{{name_bds}}</td>
-        <td>{{id_user}}</td>
-      <td>
-      <a class="button" href="/tasks?board_id={{id}}">Tareas</a>
-      <a class="button" href="boards/{{id}}/edit">Editar</a>
-      <a class="button" href="boards/{{id}}/delete">Eliminar</a>
-	  {{/login}}
-      </td>
+    <tbody>
+      <tr>
+        <td>
+          <!-- Contenido de la vista Professor/Index.html -->
+          <div class="container">
+            {{> navbar}}
+            <h2 style="margin-left: 100px;">{{title}}</h2>
+            {{#login}}
+            <a style="margin-left: 100px;  text-decoration: none;" class="button-new" href="/boards/create">New</a>
+          {{/login}}
+
+            <form action="/boards" method="GET" style="margin-left: 100px;     margin-top: 20px;">
+              <label for="search">Search by Name:</label>
+              <input type="text" id="search" name="search">
+              <button type="submit">Search</button>
+            </form>
+
+            <table>
+              <table class="custom-table" style="width: 800px;
+              margin-left: 100px;">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>User ID</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#boards}}
+                  {{#login}}
+                    <tr>
+                      <td>{{name_bds}}</td>
+                      <td>{{id_user}}</td>
+                      <td>
+                        <a class="button" href="/tasks?board_id={{id}}">Tareas</a>
+                        <a class="button" href="boards/{{id}}/edit">Editar</a>
+                        <a class="button" href="boards/{{id}}/delete">Eliminar</a>
+                      </td>
+                    </tr>
+                  {{/login}}
+                  
+                {{/boards}}
+              </tbody>
+            </table>
+          </div>
+          <!-- Fin de la vista Professor/Index.html -->
+        </td>
       </tr>
-      {{/boards}}</tbody>
-     </table>
-	 {{#login}}
-     <a class="button" href="/boards/create">New</a>
-	 {{/login}}
-    </div>
-   </div>
- </div>
+    </tbody>
+  </table>
+</container>
 </body>
+</html>

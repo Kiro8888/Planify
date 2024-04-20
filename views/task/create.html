@@ -5,6 +5,7 @@
 <title>{{title}}</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="/Assets/css/normalize.css">
 <link rel="stylesheet" href="/Assets/css/skeleton.css">
 </head>
@@ -25,7 +26,7 @@
       </div>
       <div class="six columns">
         <label for="stateSelect">State</label>
-        <select class="u-full-width" name="state" {{#show}} disabled {{/show}}>
+        <select class="u-full-width uk-text-bold" name="state" {{#show}} disabled {{/show}}>
             <option value="pendiente" {{#ifCond state "==" "pendiente"}}selected{{/ifCond}}>Pendiente</option>
             <option value="en_proceso" {{#ifCond state "==" "en_proceso"}}selected{{/ifCond}}>En Proceso</option>
             <option value="completado" {{#ifCond state "==" "completado"}}selected{{/ifCond}}>Completado</option>
@@ -59,7 +60,7 @@
      </div>
      <h1>{{board_id}}</h1>
      <input type="hidden" name="board_id" value="{{board_id}}">
-     <a class="button button-primary" href="/tasks?board_id=">Back</a>
+     <a class="button button-primary" href="/tasks?board_id={{board_id}}">Back</a>
      <input style="float: right" class="button-primary" type="submit" value="Create">
      {{/tasks}}
     </form>
