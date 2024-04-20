@@ -35,4 +35,29 @@
   .custom-table a.button:hover {
     background-color: #0056b3;
   }
-  
+
+  /*mover imagen*/
+  .bottom-right-image {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 600px; /* Ajusta el ancho según sea necesario */
+    height: auto; /* Mantén la proporción de la imagen */
+    z-index: 9999; /* Ajusta el z-index según sea necesario */
+}
+
+/*linea de color*/
+.bottom-border {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho de la página */
+  height: 20px; /* Grosor de la línea */
+  background-color: #007bff; /* Color de la línea */
+  z-index: 9998; /* Asegura que esté detrás de la imagen */
+}
+
+/*colores de los estados*/
+.state-pendiente { background-color: #ece25d; }
+.state-en_proceso { background-color: #007bff; }
+.state-completado { background-color: #27c034; }

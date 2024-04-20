@@ -1,5 +1,9 @@
     <!-- custom -->
+  
     <link rel="stylesheet" href="/Assets/css/tasks.css">
+    <img src="/Assets/images/fondos/bords1.png" class="bottom-right-image">
+
+<div class="bottom-border"></div>
 <div class="container">
   {{> navbar}}
   <div class="row">
@@ -25,7 +29,7 @@
           <tr>
             <td>{{name}}</td>
             <td>{{author}}</td>
-            <td>{{state}}</td>
+            <td class="state-{{state}}">{{state}}</td> <!-- Agrega la clase correspondiente al estado -->
             <td>{{date_start}}</td>
             <td>{{date_end}}</td>
             <td>{{note}}</td>

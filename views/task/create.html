@@ -18,37 +18,39 @@
      <form action="/tasks" method="POST">
      <div class="row">
       <div class="six columns">
-       <label for="nameInput">author</label>
+       <label for="nameInput">Author</label>
        <input class="u-full-width" type="text" 
 	     {{#show}} readonly {{/show}}
           name="author" value="{{author}}">
       </div>
       <div class="six columns">
-        <label for="nameInput">state</label>
-        <input class="u-full-width" type="text" 
-          {{#show}} readonly {{/show}}
-           name="state" value="{{state}}">
+        <label for="stateSelect">State</label>
+        <select class="u-full-width" name="state" {{#show}} disabled {{/show}}>
+            <option value="pendiente" {{#ifCond state "==" "pendiente"}}selected{{/ifCond}}>Pendiente</option>
+            <option value="en_proceso" {{#ifCond state "==" "en_proceso"}}selected{{/ifCond}}>En Proceso</option>
+            <option value="completado" {{#ifCond state "==" "completado"}}selected{{/ifCond}}>Completado</option>
+        </select>
        </div>
        <div class="six columns">
-        <label for="nameInput">date_start</label>
+        <label for="nameInput">Date Start</label>
         <input class="u-full-width" type="date" 
           {{#show}} readonly {{/show}}
            name="date_start" value="{{date_start}}">
        </div>
        <div class="six columns">
-        <label for="nameInput">date_end</label>
+        <label for="nameInput">Date End</label>
         <input class="u-full-width" type="date" 
           {{#show}} readonly {{/show}}
            name="date_end" value="{{date_end}}">
        </div>
        <div class="six columns">
-        <label for="nameInput">note</label>
+        <label for="nameInput">Note</label>
         <input class="u-full-width" type="text" 
           {{#show}} readonly {{/show}}
            name="note" value="{{note}}">
        </div>
        <div class="six columns">
-        <label for="nameInput">name</label>
+        <label for="nameInput">Name</label>
         <input class="u-full-width" type="text" 
           {{#show}} readonly {{/show}}
            name="name" value="{{name}}">
@@ -65,3 +67,4 @@
   </div>
  </div>
 </body>
+</html>
