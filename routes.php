@@ -8,6 +8,9 @@
       Route::resource('boards', 'BoardController', ['login' => Auth::check()]);
       Route::get('/boards','BoardController@index',['login'=>Auth::check()]);
       Route::get('/boards/(:number)/delete','BoardController@destroy');
+      Route::get('/boards/search', 'BoardController@search');
+
+
       // TASK
       Route::resource('tasks','TaskController', ['login' => Auth::check()]);
       Route::get('/boards/{board_id}/tasks', 'TaskController@index',['login'=>Auth::check()]);

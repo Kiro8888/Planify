@@ -17,6 +17,8 @@
       ]);
       
   }
+
+  
   
 
     public function show($id) {
@@ -83,22 +85,42 @@
       return redirect('/boards');
     }
 
-    public function search(Request $request) {
-      // Obtener el término de búsqueda del formulario
-      $searchTerm = $request->input('search');
-
-      // Realizar la búsqueda en la base de datos por nombre
-      $filteredBoards = DB::table('boards')
-          ->where('name_bds', 'like', '%' . $searchTerm . '%')
-          ->get();
-
-      // Devolver la vista con los resultados filtrados
-      return view('boards.index', [
-          'boards' => $filteredBoards,
-          'title' => 'Boards List',
-          'login' => Auth::check()
-      ]);
+    public function search() {
+      // Verificar si se ha enviado un término de búsqueda
+      if (isset($_GET['search'])) {
+          $searchTerm = $_GET['search'];
+  
+          // Realizar la búsqueda en la base de datos por nombre si el término no está vacío
+          if (!empty($searchTerm)) {
+              // Preparar la consulta SQL con el operador LIKE y los comodines %
+              $query = "SELECT * FROM boards WHERE name_bds LIKE :searchTerm";
+              $values = ['searchTerm' => '%' . $searchTerm . '%'];
+  
+              // Depurar la consulta SQL generada
+              var_dump($query);
+              var_dump($values);
+  
+              // Ejecutar la consulta utilizando la función select de tu framework PHPFramex
+              $filteredBoards = DB::select($query, $values);
+              
+              // Depurar los resultados de la consulta
+              var_dump($filteredBoards);
+              
+              // Devolver la vista con los resultados filtrados
+              return view('boards.index', [
+                  'boards' => $filteredBoards,
+                  'title' => 'Boards List',
+                  'login' => Auth::check()
+              ]);
+          }
+      }
+  
+      // Si no se proporciona un término de búsqueda, redirigir a la página principal de tableros
+      return redirect('/boards');
   }
   
+  
+
+
   }
 ?>
