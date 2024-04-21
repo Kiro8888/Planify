@@ -6,7 +6,7 @@
   class LoginController extends Controller {
 
     public function showLoginForm() {
-      return view('Auth/login',
+      return view('auth/login',
         ['error'=>false,'login'=>Auth::check(),'id' => Auth::id()]);
     }
 
@@ -25,7 +25,7 @@
     
     
     public function loginFails() {
-      return view('Auth/login',
+      return view('auth/login',
         ['error'=>true,'login'=>Auth::check()]);
     }
 

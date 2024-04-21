@@ -6,9 +6,16 @@
 <div class="bottom-border"></div>
 <div class="container">
   {{> navbar}}
+
+
+
   <div class="row">
+    <h2 style=" margin-left: 100px;">{{title}}</h2>
+    {{#board}}
+    <a class="button-new" style="text-decoration: none;" href="/tasks/create?board_id={{id}}">New</a>
+  {{/board}}
     <div>
-      <form action="/tasks" method="GET">
+      <form action="/tasks" method="GET" style="margin-top: 20px">
       </form>
       <table class="custom-table">
         <thead>
@@ -19,7 +26,6 @@
             <th>Date Start</th>
             <th>Date End</th>
             <th>Note</th>
-            <th>Board ID</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -33,7 +39,6 @@
             <td>{{date_start}}</td>
             <td>{{date_end}}</td>
             <td>{{note}}</td>
-            <td>{{board_id}}</td>
             <td>
               <a class="button" href="tasks/{{id}}">Ver</a>
               <a class="button" href="tasks/{{id}}/edit">Editar</a>
@@ -45,9 +50,6 @@
         </tbody>
       </table>
       {{#login}}
-        {{#board}}
-          <a class="button" href="/tasks/create?board_id={{id}}">New</a>
-        {{/board}}
       {{/login}}
     </div>
   </div>

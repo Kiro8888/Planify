@@ -9,7 +9,7 @@
                           ->orWhere('share', $id_user)
                           ->get();
       
-      return view('boards/index', [
+      return view('boards/Index', [
           'boards' => $filteredBoards,
           'title' => 'Boards List',
           'login' => Auth::check(),
