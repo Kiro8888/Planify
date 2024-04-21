@@ -13,12 +13,16 @@
     public function login() {
       $email = Input::get('email');   
       $password = Input::get('password');
-      if (Auth::attempt(['email' => $email,
-        'password' => $password])) {
+      $user = UserModel::where('email', $email)->first();
+      if (!$user) {
+        return redirect('/loginFails');
+      }
+      if (Auth::attempt(['email' => $email, 'password' => $password])) {
         return redirect('/boards');
       }
       return redirect('/loginFails');
     }
+    
     
     public function loginFails() {
       return view('Auth/login',
